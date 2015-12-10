@@ -10,7 +10,7 @@ use warnings;
 use File::ShareDir::Tarball qw(dist_dir);
 
 our $scenario = {
-    summary => 'Benchmark IOD parsing modules',
+    summary => 'Benchmark IOD/INI parsing modules',
     participants => [
         {
             module => 'Config::IOD::Reader',
@@ -19,6 +19,17 @@ our $scenario = {
         {
             module => 'Config::IOD',
             code_template => 'state $iod = Config::IOD->new; $iod->read_file(<filename>)',
+        },
+
+        {
+            module => 'Config::INI::Reader',
+            code_template => 'Config::INI::Reader->read_file(<filename>)',
+            tags => ['ini'],
+        },
+        {
+            module => 'Config::IniFiles',
+            code_template => 'Config::IniFiles->new(-file => <filename>)',
+            tags => ['ini'],
         },
     ],
 
@@ -33,6 +44,7 @@ for my $filename (glob "$dir/examples/extra-bench-*.iod") {
     push @{ $scenario->{datasets} }, {
         name => $basename,
         args => {filename => $filename},
+        ( exclude_participant_tags => ['ini'] ) x ($basename =~ /basic\.iod/ ? 1:0), # these files are not parseable by INI parsers
     };
 }
 
