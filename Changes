@@ -1,5 +1,10 @@
 Revision history for Bencher-Scenario-IODParsingModules
 
+0.02    2015-12-10 (PERLANCAR)
+
+	- Add participants: Config::INI::Reader & Config::IniFiles.
+
+
 0.01    2015-12-09 (PERLANCAR)
 
         - First release.
