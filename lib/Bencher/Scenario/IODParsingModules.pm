@@ -50,10 +50,3 @@ for my $filename (glob "$dir/examples/extra-bench-*.iod") {
 
 1;
 # ABSTRACT:
-
-=head1 SYNOPSIS
-
- % bencher -m IODParsingModules [other options]...
-
-
-=head1 SEE ALSO
