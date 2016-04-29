@@ -31,6 +31,11 @@ our $scenario = {
             code_template => 'Config::IniFiles->new(-file => <filename>)',
             tags => ['ini'],
         },
+        {
+            module => 'Config::Simple::Conf',
+            code_template => 'Config::Simple::Conf->new(<filename>)',
+            tags => ['ini'],
+        },
     ],
 
     datasets => [
