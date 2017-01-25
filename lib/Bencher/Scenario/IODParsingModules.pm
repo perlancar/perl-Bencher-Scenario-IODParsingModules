@@ -11,6 +11,11 @@ use File::ShareDir::Tarball qw(dist_dir);
 
 our $scenario = {
     summary => 'Benchmark IOD/INI parsing modules',
+    modules => {
+        # minimum versions
+        'Config::IOD' => {version=>'0.31'},
+        'Config::IOD::Reader' => {version=>'0.31'},
+    },
     participants => [
         {
             module => 'Config::IOD::Reader',
